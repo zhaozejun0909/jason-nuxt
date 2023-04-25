@@ -1,9 +1,12 @@
 
 import { Configuration, OpenAIApi } from "openai"
 
+const runtimeConfig = useRuntimeConfig()
+const theKey = runtimeConfig.openaiKey
 const configuration = new Configuration({
-    apiKey: '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', //process.env.OPENAI_API_KEY,
+    apiKey: theKey, //process.env.OPENAI_API_KEY,
 })
+
 const openai = new OpenAIApi(configuration)
 
 export default defineEventHandler(async (event) => {
