@@ -2,7 +2,8 @@
 import { Configuration, OpenAIApi } from "openai"
 
 const runtimeConfig = useRuntimeConfig()
-const theKey = runtimeConfig.openaiKey
+// const theKey = runtimeConfig.openaiKey
+const theKey = process.env.VERCEL_AI_KEY
 const configuration = new Configuration({
     apiKey: theKey, //process.env.OPENAI_API_KEY,
 })
