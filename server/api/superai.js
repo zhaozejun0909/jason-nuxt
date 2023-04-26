@@ -14,9 +14,9 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const reqWords = body.r
     try {
-        const completion = await openai.createCompletion({
-            model: 'gpt-3.5-turbo-0301',
-            prompt: reqWords,
+        const completion = await openai.createChatCompletion({
+            model: 'gpt-3.5-turbo',
+            messages: [{role: "user", content: reqWords}],
             temperature: 0.6,
         }, {
             timeout: 20000,
